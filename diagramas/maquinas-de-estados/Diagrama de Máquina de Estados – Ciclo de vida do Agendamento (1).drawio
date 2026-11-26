@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="APPAL-yLpHMlxMcvkxz8">
+    <mxGraphModel dx="1190" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c3" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=280;height=26;fontStyle=1;fontSize=12;fillColor=none;strokeWidth=1.5;" value="stm Ciclo de vida do Agendamento" vertex="1">
+          <mxGeometry height="806" width="1168" x="16" y="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=16;fontColor=#222222;fontStyle=1;" value="Diagrama de Máquina de Estados – Ciclo de vida do Agendamento" vertex="1">
+          <mxGeometry height="30" width="1200" y="14" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" parent="1" style="ellipse;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="80" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="c12" parent="1" style="rounded=1;arcSize=20;html=1;whiteSpace=wrap;fillColor=none;strokeWidth=1.5;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" value="Aguardando&lt;br&gt;pagamento&lt;br&gt;(reserva de 15 min)" vertex="1">
+          <mxGeometry height="64" width="220" x="200" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="c14" parent="1" style="rounded=1;arcSize=20;html=1;whiteSpace=wrap;fillColor=none;strokeWidth=1.5;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" value="Pago /&lt;br&gt;Confirmado" vertex="1">
+          <mxGeometry height="64" width="200" x="520" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="c16" parent="1" style="rounded=1;arcSize=20;html=1;whiteSpace=wrap;fillColor=none;strokeWidth=1.5;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" value="Realizado&lt;br&gt;(sessão ocorrida)" vertex="1">
+          <mxGeometry height="64" width="200" x="820" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="c18" parent="1" style="rounded=1;arcSize=20;html=1;whiteSpace=wrap;fillColor=none;strokeWidth=1.5;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" value="Cancelado" vertex="1">
+          <mxGeometry height="64" width="220" x="200" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="c20" parent="1" style="rounded=1;arcSize=20;html=1;whiteSpace=wrap;fillColor=none;strokeWidth=1.5;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" value="Expirado&lt;br&gt;(sem pagamento em 15 min)" vertex="1">
+          <mxGeometry height="64" width="200" x="520" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="c22" parent="1" style="rounded=1;arcSize=20;html=1;whiteSpace=wrap;fillColor=none;strokeWidth=1.5;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" value="Reembolsado" vertex="1">
+          <mxGeometry height="64" width="200" x="820" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="c24" parent="1" style="ellipse;html=1;shape=endState;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="32" width="32" x="1032" y="136" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" edge="1" parent="1" source="c10" style="html=1;rounded=0;endArrow=open;strokeWidth=1.4;fontSize=11;fillColor=none;" target="c12" value="criarAgendamento()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" edge="1" parent="1" source="c12" style="html=1;rounded=0;endArrow=open;strokeWidth=1.4;fontSize=11;fillColor=none;" target="c14" value="pagamentoConfirmado()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t3" edge="1" parent="1" source="c12" style="html=1;rounded=0;endArrow=open;strokeWidth=1.4;fontSize=11;fillColor=none;" target="c20" value="timeout(15 min) / liberarVaga()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t4" edge="1" parent="1" source="c12" style="html=1;rounded=0;endArrow=open;strokeWidth=1.4;fontSize=11;fillColor=none;" target="c18" value="cancelar() / liberarVaga()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t5" edge="1" parent="1" source="c14" style="html=1;rounded=0;endArrow=open;strokeWidth=1.4;fontSize=11;fillColor=none;" target="c16" value="sessaoRealizada()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t6" edge="1" parent="1" source="c14" style="html=1;rounded=0;endArrow=open;strokeWidth=1.4;fontSize=11;fillColor=none;" target="c18" value="cancelar() / reembolsar()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t7" edge="1" parent="1" source="c14" style="html=1;rounded=0;endArrow=open;strokeWidth=1.4;fontSize=11;fillColor=none;" target="c22" value="noShowProfissional() / reembolsar()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t8" edge="1" parent="1" source="c16" style="html=1;rounded=0;endArrow=open;strokeWidth=1.4;fontSize=11;fillColor=none;" target="c24" value="finalizar()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t9" edge="1" parent="1" source="c18" style="html=1;rounded=0;endArrow=open;strokeWidth=1.4;fontSize=11;fillColor=none;" target="c24" value="finalizar()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t10" edge="1" parent="1" source="c20" style="html=1;rounded=0;endArrow=open;strokeWidth=1.4;fontSize=11;fillColor=none;" target="c24" value="finalizar()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t11" edge="1" parent="1" source="c22" style="html=1;rounded=0;endArrow=open;strokeWidth=1.4;fontSize=11;fillColor=none;" target="c24" value="finalizar()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n1" parent="1" style="shape=note;size=10;whiteSpace=wrap;html=1;fillColor=none;align=left;spacingLeft=6;fontSize=10;" value="Estados terminais: Realizado, Cancelado, Expirado, Reembolsado&lt;br&gt;Transições com &quot;/&quot; indicam ação (effect) executada na saída." vertex="1">
+          <mxGeometry height="56" width="420" x="80" y="600" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
